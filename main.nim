@@ -20,7 +20,7 @@ method addtoPath(app: AppState, folderName: string) {.base.} =
     except IOError:
         discard app.open: gui:
             MessageDialog:
-                message = "sucess"
+                message = "Could not open .bashrc, Please report this to the developers."
                 DialogButton {.addButton.}:
                     text = "Ok."
                     res = DialogAccept
