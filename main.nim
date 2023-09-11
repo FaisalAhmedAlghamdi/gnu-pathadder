@@ -1,13 +1,20 @@
 import owlkettle
 import os
 import std/strformat
+import std/strbasics
 
 viewable App:
     path: string
 
-proc addtoPath(app: AppState, folderName: string) {.base.} =
+proc addtoPath(app: AppState, folderName: string) =
     let pathToBashrc = fmt"{os.getHomeDir()}.bashrc"
     let file = open(pathToBashrc, fmAppend)
+
+    # looks weird but i need to copy the string as var so i can pass it into strip.
+    var folderName = folderName
+
+    # remove whitespaces
+    strip(folderName)
     defer: file.close()
     try:
         file.writeLine(fmt"export PATH={folderName}:$PATH")
@@ -17,10 +24,10 @@ proc addtoPath(app: AppState, folderName: string) {.base.} =
                 DialogButton {.addButton.}:
                     text = "Ok."
                     res = DialogAccept
-    except IOError:
+    except IOError as e:
         discard app.open: gui:
             MessageDialog:
-                message = "Could not open .bashrc, Please report this to the developers."
+                message = fmt"An error happened report this message to the developers: {e.msg}"
                 DialogButton {.addButton.}:
                     text = "Ok."
                     res = DialogAccept
@@ -34,7 +41,7 @@ method view(app: AppState): Widget =
             Box(orient = OrientY, spacing = 6, margin = 12):
                 Entry:
                     placeholder = "Enter the path here."
-                    proc changed(path: string)=
+                    proc changed(path: string) =
                         app.path = path
                 Button {.expand: true.}:
                     text = "Click me to add a folder to path"
