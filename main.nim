@@ -5,7 +5,7 @@ import std/strformat
 viewable App:
     path: string
 
-method addtoPath(app: AppState, folderName: string) {.base.} =
+proc addtoPath(app: AppState, folderName: string) {.base.} =
     let pathToBashrc = fmt"{os.getHomeDir()}.bashrc"
     let file = open(pathToBashrc, fmAppend)
     defer: file.close()
