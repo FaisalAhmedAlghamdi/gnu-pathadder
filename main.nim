@@ -1,7 +1,11 @@
+import std/[
+  os,
+  strformat,
+  strbasics
+]
+
 import owlkettle
-import os
-import std/strformat
-import std/strbasics
+
 
 viewable App:
     path: string
