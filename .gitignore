@@ -1,2 +1,4 @@
 Debug
 Release
+ubuntu-debian-package/usr/bin
+LibrePathAdder/usr/bin/*
