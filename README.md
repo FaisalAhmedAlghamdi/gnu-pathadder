@@ -15,7 +15,7 @@ Before you can use Libre Path Adder, you need to ensure you have the following d
 GTK 4 (Ubuntu-based distros)
 You can install GTK 4 on Ubuntu-based Linux distributions using the following command:
 ```bash
-sudo apt install libgtk-4-1
+sudo apt install libgtk-4-dev
 ```
 Owlkettle
 To install the Owlkettle library, you can use the Nim package manager, Nimble. Run the following command to install Owlkettle:
