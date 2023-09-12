@@ -2,6 +2,8 @@
 
 Libre Path Adder is a GUI utility designed to simplify the process of adding paths for the Bash shell (zsh coming soon). It provides an efficient way to manage your environment variables, making it easier to access your favorite tools and applications from your command line.
 
+![Screenshot_from_2023-09-12_08-57-33-removebg-preview(1)](https://github.com/FaisalAhmedAlghamdi/libre-pathadder/assets/142179718/855cc18e-15f8-40c8-9162-59feb7925113)
+
 ## Looking for binaries?
 We provide Appimages through our CI [here](https://github.com/FaisalAhmedAlghamdi/libre-pathadder/releases). (Arm builds are **untested** due to the lack of hardware support i have. You can test it yourself and tell us what bugs you encounter (unlikely).
 
