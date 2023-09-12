@@ -36,7 +36,7 @@ proc addtoPath(app: AppState, folderName: string) =
 method view(app: AppState): Widget =
     result = gui:
         Window:
-            title = "GNU Path adder program"
+            title = "Libre Path adder program"
             defaultSize = (200, 200)
             Box(orient = OrientY, spacing = 6, margin = 12):
                 Entry:
