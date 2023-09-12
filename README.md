@@ -2,6 +2,10 @@
 
 GNU Path Adder is a GUI utility designed to simplify the process of adding paths for the Bash shell (zsh coming soon). It provides an efficient way to manage your environment variables, making it easier to access your favorite tools and applications from your command line.
 
+## Looking for binaries?
+We provide Appimages through our CI [here](https://github.com/FaisalAhmedAlghamdi/gnu-pathadder/actions). (Arm builds are **untested** due to the lack of hardware support i have. You can test it yourself and tell us what bugs you encounter (unlikely).
+
+
 ## Prerequisites
 Before you can use GNU Path Adder, you need to ensure you have the following dependencies installed:
 - GTK 4
