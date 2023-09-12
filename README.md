@@ -1,15 +1,48 @@
-# gnu-pathadder
+# GNU Path Adder
 
-The GNU path adder program. It shall add paths for bash.
+GNU Path Adder is a GUI utility designed to simplify the process of adding paths for the Bash shell (zsh coming soon). It provides an efficient way to manage your environment variables, making it easier to access your favorite tools and applications from your command line.
 
-this requires GTK 4 and the owlkettle library, install them via:
-gtk on ubuntu based distros: `sudo apt install libgtk-4-1`
+## Prerequisites
+Before you can use GNU Path Adder, you need to ensure you have the following dependencies installed:
+- GTK 4
+- Owlkettle library
+- Nim 2.0.0
+## Installing Dependencies
+GTK 4 (Ubuntu-based distros)
+You can install GTK 4 on Ubuntu-based Linux distributions using the following command:
+```bash
+sudo apt install libgtk-4-1
+```
+Owlkettle
+To install the Owlkettle library, you can use the Nim package manager, Nimble. Run the following command to install Owlkettle:
+```bash
+nimble install owlkettle@#head
+```
 
-owlkettle: `nimble install owlkettle@#head`
+## Building
+Follow these steps to build GNU Path Adder:
 
-Building:
-run `make setup`
-then `make release`
-for a release build
+Clone the repository:
+```
+git clone <repository_url>
+cd gnu-pathadder
+```
+Set up the project:
+```
+make setup
+```
+Build a release version:
+```
+make release
+```
+This will compile the program with optimizations for a release build and also bundle it in an appimage.
 
-or run `make debug` to run with debug (requires valgrind)
+OR
+
+Build with debug information (requires Valgrind for debugging):
+```
+make debug
+```
+The debug build includes additional information to help diagnose issues during development.
+
+That's it! You now have GNU Path Adder built and ready to use.
