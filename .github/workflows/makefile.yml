@@ -23,7 +23,16 @@ jobs:
         nim-version: 2.0.0
         
     - name: Install dependencies
-      run: sudo apt install libgtk-4-1
+      run: sudo apt install libgtk-4-dev
+      
+    - name: Install Nim dependencies
+      run: nimble install owlkettle -y
+
+    - name: Install appimagetool
+      run: |
+        wget "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
+        chmod a+x appimagetool-x86_64.AppImage
+        sudo mv appimagetool-x86_64.AppImage /usr/local/bin/appimagetool
 
     - name: Build
       run: make release
