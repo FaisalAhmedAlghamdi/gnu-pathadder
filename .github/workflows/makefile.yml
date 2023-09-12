@@ -23,7 +23,7 @@ jobs:
         nim-version: 2.0.0
         
     - name: Install dependencies
-      run: sudo apt install libgtk-4-dev
+      run: sudo apt install libgtk-4-dev libfuse2 build-essential
       
     - name: Install Nim dependencies
       run: nimble install owlkettle@#head -y
