@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=GNU Path Adder
+Categories=Utility;
+Icon=myapp
+Exec=AppRun
+
+X-AppImage-Version=0.1.0
+X-AppImage-Arch=x86_64
