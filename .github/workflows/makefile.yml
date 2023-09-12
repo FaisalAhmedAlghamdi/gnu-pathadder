@@ -26,7 +26,7 @@ jobs:
       run: sudo apt install libgtk-4-dev
       
     - name: Install Nim dependencies
-      run: nimble install owlkettle -y
+      run: nimble install owlkettle@#head -y
 
     - name: Install appimagetool
       run: |
