@@ -11,9 +11,10 @@ proc addFolderToPath*(folderName: string) =
 
     var pathToEnvFile = ""
     try:
-        var pathToEnvFile = fmt"{os.getHomeDir()}.bashrc"
+        pathToEnvFile = fmt"{os.getHomeDir()}.bashrc"
     except:
-        var pathToEnvFile = fmt"{os.getHomeDir()}.zshrc"
+        pathToEnvFile = fmt"{os.getHomeDir()}.zshrc"
+    
 
     let file = open(pathToEnvFile, fmAppend)
 
