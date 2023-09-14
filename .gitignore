@@ -4,3 +4,4 @@ ubuntu-debian-package/usr/bin
 LibrePathAdder/usr/bin/*
 LibrePathAdder.deb
 .flatpak-builder/*
+Libre-Path-Adder.AppDir/AppRun

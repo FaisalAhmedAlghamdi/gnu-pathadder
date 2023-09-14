@@ -5,3 +5,7 @@ debug:
 
 setup:
 	mkdir Debug
+
+appimage:
+	nim c -d:release -d:lto --outdir:Libre-path-adder --out:Libre-Path-Adder.AppDir/AppRun src/main.nim
+	appimagetool Libre-Path-Adder.AppDir/
