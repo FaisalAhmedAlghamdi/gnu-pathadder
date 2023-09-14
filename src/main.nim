@@ -1,38 +1,10 @@
-import std/[
-    strformat,
-    strbasics,
-    os
-]
 import owlkettle
+from backends import addFolderToPath
+import std/strformat
+
 
 viewable App:
     path: string
-
-proc addtoPath(app: AppState, folderName: string) =
-    let pathToBashrc = fmt"{os.getHomeDir()}.bashrc"
-    let file = open(pathToBashrc, fmAppend)
-
-    # looks weird but i need to copy the string as var so i can pass it into strip.
-    var folderName = folderName
-
-    # remove whitespaces
-    strip(folderName)
-    defer: file.close()
-    try:
-        file.writeLine(fmt"export PATH={folderName}:$PATH")
-        discard app.open: gui:
-            MessageDialog:
-                message = "Sucess, you can now close the program."
-                DialogButton {.addButton.}:
-                    text = "Ok."
-                    res = DialogAccept
-    except IOError as e:
-        discard app.open: gui:
-            MessageDialog:
-                message = fmt"An error happened report this message to the developers: {e.msg}"
-                DialogButton {.addButton.}:
-                    text = "Ok."
-                    res = DialogAccept
 
 
 method view(app: AppState): Widget =
@@ -49,6 +21,19 @@ method view(app: AppState): Widget =
                     text = "Click me to add a folder to path"
                     style = [ButtonSuggested]
                     proc clicked() =
-                        app.addtoPath(app.path)
+                        try:
+                            addFolderToPath(app.path)
+                            discard app.open: gui:
+                                MessageDialog:
+                                    message = "Sucess, folder has been added to path"
+                                    DialogButton {.addbutton.}:
+                                        text = "Ok"
+                        except Exception as e:
+                            discard app.open: gui:
+                                MessageDialog:
+                                    message = fmt"An error happened! {e.msg}"
+                                    DialogButton {.addbutton.}:
+                                        text = "Ok"
+
 
 brew(gui(App()))
