@@ -34,11 +34,11 @@ jobs:
     - name: Install Nim dependencies
       run: nimble install owlkettle@#head -y
       
-    - name: Build release
-      run: make release
+    - name: Build Appimage
+      run: make appimage
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.3
       with:
         name: Libre Path Adder
-        path: LibrePathAdder.deb
+        path: Libre_Path_Adder-x86_64.AppImage
