@@ -40,11 +40,11 @@ jobs:
         chmod a+x appimagetool-x86_64.AppImage
         sudo mv appimagetool-x86_64.AppImage /usr/local/bin/appimagetool
       
-    - name: Build release
-      run: make release
+    - name: Build Appimage
+      run: make appimage
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.3
       with:
-        name: GNU Path Adder
-        path: LibrePathAdder.deb
+        name: Libre Path Adder
+        path: Libre_Path_Adder-x86_64.AppImage
