@@ -5,7 +5,7 @@ import std/[
 ]
 
 
-proc addFolderToPath*(folderName: string) =
+proc addFolderToPath*(folderName: var string) =
     if folderName == "":
         raise newException(Exception, "Input was empty")
 
@@ -14,12 +14,8 @@ proc addFolderToPath*(folderName: string) =
         pathToEnvFile = fmt"{os.getHomeDir()}.bashrc"
     except:
         pathToEnvFile = fmt"{os.getHomeDir()}.zshrc"
-    
 
     let file = open(pathToEnvFile, fmAppend)
-
-    # looks weird but i need to copy the string so i can pass it into strip.
-    var folderName = folderName
 
     # remove whitespaces
     strip(folderName)
